@@ -20,23 +20,53 @@ body {
   width: 100%;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #4a90e2;
-}
-
-/* Title Styling */
+/* Updated Title Styles */
 .title-container {
   text-align: center;
-  margin-bottom: 50px; /* Space between title and form */
+  margin-bottom: 50px;
 }
 
 .title-container h1 {
   font-size: 2rem;
-  color: #ffffff; /* Match the color to your theme */
   font-weight: bold;
   margin: 0;
+  background: linear-gradient(135deg, #e4b176, #382200); /* Light brown to deep brown gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2), 0px -1px 5px rgba(255, 255, 255, 0.5);
 }
+
+/* Glossy Effect */
+.title-container h1::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 10px; /* Move the line below the text */
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  width: 60%;
+  margin: 5px auto 0 auto;
+  border-radius: 5px;
+  animation: none; /* Turn off animation */
+}
+
+/* Optional: If you want to keep the animation but outside the text */
+@keyframes shine {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.title-container h1::after {
+  animation: shine 3s infinite linear; /* Enable this if you want the animation */
+}
+
 
 /* Form Sections */
 .form-section {
@@ -79,12 +109,6 @@ button:hover {
   background: #3b78d4;
 }
 
-#loading {
-  color: #4a90e2;
-  font-style: italic;
-  margin-top: 15px;
-}
-
 /* Dynamic Transition Effect */
 div.form-section {
   animation: fadeIn 0.5s ease-in-out;
@@ -92,12 +116,12 @@ div.form-section {
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

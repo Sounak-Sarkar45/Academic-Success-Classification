@@ -86,11 +86,18 @@ function submitForm() {
         // Show the modal with the prediction result
         const modal = document.getElementById('prediction-modal');
         const modalMessage = document.getElementById('modal-message');
-        if (data.prediction) {
-            modalMessage.textContent = `The student will : ${data.prediction}`;
-        } else if (data.error) {
-            modalMessage.textContent = `Error: ${data.error}`;
+
+        // Add emoji based on prediction
+        if (data.prediction === 'Graduate') {
+            modalMessage.textContent = `The student will : Graduate 🤩`;
+        } else if (data.prediction === 'Enrolled') {
+            modalMessage.textContent = `The student is : Enrolled 😁`;
+        } else if (data.prediction === 'Dropout') {
+            modalMessage.textContent = `The student will : Dropout 😓`;
+        } else {
+            modalMessage.textContent = `Error: Invalid prediction`;
         }
+
         modal.style.display = 'block';
     })
     .catch(error => {

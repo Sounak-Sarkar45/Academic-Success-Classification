@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Step Form</title>
+    <title>Academic Success</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -14,18 +14,17 @@
         <div class="slideshow-image" style="background-image: url('{{ url_for('static', filename='3.jpg') }}');"></div>
         <div class="slideshow-image" style="background-image: url('{{ url_for('static', filename='4.jpeg') }}');"></div>
         <div class="slideshow-image" style="background-image: url('{{ url_for('static', filename='5.jpg') }}');"></div>
-    </div>
-    <!-- Title -->
-    <div class="title-container">
-        <h1>Academic Success Prediction</h1>
     </div>    
     <div class="form-container">
+        <div class="title-container">
+            <h1>Academic Success Prediction</h1>
+        </div>
         <div id="form-sections">
             <!-- Personal Information -->
             <div class="form-section active">
                 <h2>Personal Information</h2>
                 <label>Marital status:
-                    <select id="Marital status">
+                    <select id="Marital status" required>
                         <option value=1>Single</option>
                         <option value=2>Married</option>
                         <option value=3>Widower</option>
@@ -35,7 +34,7 @@
                     </select>
                 </label>
                 <label>Nationality:
-                    <select id="Nacionality">
+                    <select id="Nacionality" required>
                         <option value=1>Portuguese</option>
                         <option value=2>German</option>
                         <option value=6>Spanish</option>
@@ -60,14 +59,16 @@
                     </select>
                 </label>
                 <label>Gender:
-                    <select id="Gender">
+                    <select id="Gender" required>
                         <option value=1>Male</option>
                         <option value=0>Female</option>
                     </select>
                 </label>
-                <label>Age at enrollment: <input type="number" id="Age at enrollment"></label>
+                <label>Age at enrollment:
+                    <input type="number" id="Age at enrollment" min="17" max="100" step="1" placeholder="Minimum Age should be not less thean 17" required>
+                </label>
                 <label>International:
-                    <select id="International">
+                    <select id="International" required>
                         <option value=1>Yes</option>
                         <option value=0>No</option>
                     </select>
@@ -79,7 +80,7 @@
             <div class="form-section">
                 <h2>Application Details</h2>
                 <label>Application mode:
-                    <select id="Application mode">
+                    <select id="Application mode" required>
                         <option value=1>1st phase - general contingent</option>
                         <option value=2>Ordinance No. 612/93</option>
                         <option value=5>1st phase - special contingent (Azores Island)</option>
@@ -100,9 +101,11 @@
                         <option value=57>Change of institution/course (International)</option>
                     </select>
                 </label>
-                <label>Application order: <input type="number" id="Application order"></label>
+                <label>Application order:
+                    <input type="number" id="Application order" min="0" max="9" step="1" placeholder="Enter grade between 0 and 9" required>
+                </label>
                 <label>Course:
-                    <select id="Course">
+                    <select id="Course" required>
                         <option value=33>Biofuel Production Technologies</option>
                         <option value=171>Animation and Multimedia Design</option>
                         <option value=8014>Social Service (evening attendance)</option>
@@ -123,13 +126,13 @@
                     </select>
                 </label>
                 <label>Daytime/evening attendance:
-                    <select id="Daytime/evening attendance">
+                    <select id="Daytime/evening attendance" required>
                         <option value=1>Daytime</option>
                         <option value=0>Evening</option>
                     </select>
                 </label>
                 <label>Previous qualification:
-                    <select id="Previous qualification">
+                    <select id="Previous qualification" required>
                         <option value=1>Secondary education</option>
                         <option value=2>Higher education - bachelor's degree</option>
                         <option value=3>Higher education - degree</option>
@@ -149,7 +152,9 @@
                         <option value=43>Higher education - master's (2nd cycle)</option>
                     </select>
                 </label>
-                <label>Previous qualification (grade): <input type="number" id="Previous qualification (grade)"></label>
+                <label>Previous qualification (grade):
+                    <input type="number" id="Previous qualification (grade)" min="0" max="200" step="1" placeholder="Enter grade between 0 and 200" required>
+                </label>
                 <button onclick="previousSection()">Previous</button>
                 <button onclick="nextSection()">Next</button>
             </div>
@@ -158,7 +163,7 @@
             <div class="form-section">
                 <h2>Family Background</h2>
                 <label>Mother's qualification:
-                    <select id="MothersQualification">
+                    <select id="MothersQualification" required>
                         <option value="1">Secondary Education - 12th Year of Schooling or Eq.</option>
                         <option value="2">Higher Education - Bachelor's Degree</option>
                         <option value="3">Higher Education - Degree</option>
@@ -191,7 +196,7 @@
                     </select>
                 </label>                
                 <label>Father's qualification:
-                    <select id="FathersQualification">
+                    <select id="FathersQualification" required>
                         <option value="1">Secondary Education - 12th Year of Schooling or Eq.</option>
                         <option value="2">Higher Education - Bachelor's Degree</option>
                         <option value="3">Higher Education - Degree</option>
@@ -229,7 +234,7 @@
                     </select>
                 </label>                
                 <label>Mother's Occupation:
-                    <select id="Mother's Occupation">
+                    <select id="Mother's Occupation" required>
                         <option value=0>Student</option>
                         <option value=1>Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers</option>
                         <option value=2>Specialists in Intellectual and Scientific Activities</option>
@@ -265,7 +270,7 @@
                     </select>
                 </label>
                 <label>Father's Occupation:
-                    <select id="Father's Occupation">
+                    <select id="Father's Occupation" required>
                         <option value=0>Student</option>
                         <option value=1>Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers</option>
                         <option value=2>Specialists in Intellectual and Scientific Activities</option>
@@ -322,32 +327,34 @@
             <div class="form-section">
                 <h2>Admission and Fees</h2>
                 <label>Admission grade:
-                    <input type="number" id="Admission grade" min="0" max="200" step="1" placeholder="Enter grade between 0 and 200">
+                    <input type="number" id="Admission grade" min="0" max="200" step="1" placeholder="Enter grade between 0 and 200" required>
                 </label>
                 <label>Scholarship holder:
-                    <input type="checkbox" id="Scholarshipholder" value="1">
-                    Yes
+                    <select id="Scholarship holder" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
                 </label>
                 <label>Displaced:
-                    <select id="Displaced">
+                    <select id="Displaced" required>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </label>
                 <label>Educational special needs:
-                    <select id="EducationalSpecialNeeds">
+                    <select id="EducationalSpecialNeeds" required>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </label>
                 <label>Debtor:
-                    <select id="Debtor">
+                    <select id="Debtor" required>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </label>
                 <label>Tuition fees up to date:
-                    <select id="TuitionFeesUpToDate">
+                    <select id="TuitionFeesUpToDate" required>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
@@ -360,27 +367,27 @@
             <div class="form-section">
                 <h2>Academic Performance 1st Semester</h2>
                 <label>Curricular units 1st sem (credited):
-                    <input type="number" id="CurricularUnits1stSemCredited" min="0">
+                    <input type="number" id="Curricular units 1st sem (credited)" min="0" max="20" step="1" placeholder="Enter units between 0 and 20" required>
                 </label>
-                
+
                 <label>Curricular units 1st sem (enrolled):
-                    <input type="number" id="CurricularUnits1stSemEnrolled" min="0">
+                    <input type="number" id="Curricular units 1st sem (enrolled)" min="0" max="25" step="1" placeholder="Enter units between 0 and 25" required>
                 </label>
                 
                 <label>Curricular units 1st sem (evaluations):
-                    <input type="number" id="CurricularUnits1stSemEvaluations" min="0">
+                    <input type="number" id="Curricular units 1st sem (evaluations)" min="0" max="50" step="1" placeholder="Enter units between 0 and 50" required>
                 </label>
                 
                 <label>Curricular units 1st sem (approved):
-                    <input type="number" id="CurricularUnits1stSemApproved" min="0">
+                    <input type="number" id="Curricular units 1st sem (approved)" min="0" max="50" step="1" placeholder="Enter units between 0 and 50" required>
                 </label>
                 
                 <label>Curricular units 1st sem (grade):
-                    <input type="number" id="CurricularUnits1stSemGrade" min="0" max="20">
+                    <input type="number" id="Curricular units 1st sem (grade)" min="0" max="20" step="1" placeholder="Enter grade between 0 and 20" required>
                 </label>
                 
                 <label>Curricular units 1st sem (without evaluations):
-                    <input type="number" id="CurricularUnits1stSemWithoutEvaluations" min="0">
+                    <input type="number" id="Curricular units 1st sem (without evaluations)" min="0" max="20" step="1" placeholder="Enter units between 0 and 20" required>
                 </label>
                 <button onclick="previousSection()">Previous</button>
                 <button onclick="nextSection()">Next</button>
@@ -390,27 +397,27 @@
             <div class="form-section">
                 <h2>Academic Performance 2nd Semester</h2>
                 <label>Curricular units 2nd sem (credited):
-                    <input type="number" id="CurricularUnits2ndSemCredited" min="0">
+                    <input type="number" id="Curricular units 2nd sem (credited)" min="0" max="20" step="1" placeholder="Enter units between 0 and 20" required>
                 </label>
                 
                 <label>Curricular units 2nd sem (enrolled):
-                    <input type="number" id="CurricularUnits2ndSemEnrolled" min="0">
+                    <input type="number" id="Curricular units 2nd sem (enrolled)" min="0" max="25" step="1" placeholder="Enter units between 0 and 25" required>
                 </label>
                 
                 <label>Curricular units 2nd sem (evaluations):
-                    <input type="number" id="CurricularUnits2ndSemEvaluations" min="0">
+                    <input type="number" id="Curricular units 2nd sem (evaluations)" min="0" max="50" step="1" placeholder="Enter units between 0 and 50" required>
                 </label>
                 
                 <label>Curricular units 2nd sem (approved):
-                    <input type="number" id="CurricularUnits2ndSemApproved" min="0">
+                    <input type="number" id="Curricular units 2nd sem (approved)" min="0" max="50" step="1" placeholder="Enter units between 0 and 50" required>
                 </label>
                 
                 <label>Curricular units 2nd sem (grade):
-                    <input type="number" id="CurricularUnits2ndSemGrade" min="0" max="20">
+                    <input type="number" id="Curricular units 2nd sem (grade)" min="0" max="20" step="1" placeholder="Enter grade between 0 and 20" required>
                 </label>
                 
                 <label>Curricular units 2nd sem (without evaluations):
-                    <input type="number" id="CurricularUnits2ndSemWithoutEvaluations" min="0">
+                    <input type="number" id="Curricular units 2nd sem (without evaluations)" min="0" max="20" step="1" placeholder="Enter units between 0 and 20" required>
                 </label>
                 <button onclick="previousSection()">Previous</button>
                 <button onclick="nextSection()">Next</button>
@@ -420,15 +427,15 @@
             <div class="form-section">
                 <h2>Economic Indicators</h2>
                 <label>Unemployment rate:
-                    <input type="number" id="UnemploymentRate" step="0.01" min="0">
+                    <input type="number" id="Unemployment rate" min="0" max="100" step="1" placeholder="Enter the rate %" required>
                 </label>
                 
                 <label>Inflation rate:
-                    <input type="number" id="InflationRate" step="0.01" min="0">
+                    <input type="number" id="Inflation rate" min="0" max="100" step="1" placeholder="Enter the rate %" required>
                 </label>
                 
                 <label>GDP:
-                    <input type="number" id="GDP" step="0.01" min="0">
+                    <input type="number" id="Inflation rate" min="-5" max="5" step="1" placeholder="Enter between -5 to +5" required>
                 </label>
                 <button onclick="previousSection()">Previous</button>
                 <button onclick="nextSection()">Next</button>
@@ -448,8 +455,16 @@
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <p id="modal-message">Prediction result will appear here.</p>
+            <!-- Home button inside the modal -->
+            <button onclick="goHome()">Go to Home</button>
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Function to navigate to the home page
+        function goHome() {
+            window.location.href = '/'; // Adjust this URL based on your home page route
+        }
+    </script>
 </body>
 </html>
