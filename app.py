@@ -41,8 +41,10 @@ class AcademicSuccess:
         return label_mapping.get(prediction[0], "Unknown")
 
 academic_success = AcademicSuccess(
-    scaler_path='D:/Environments/Projects/Academic-Success-Classification/experiments/scaler.joblib',
-    model_path='D:/Environments/Projects/Academic-Success-Classification/experiments/rf.pkl'
+    # scaler_path='D:/Environments/Projects/Academic-Success-Classification/experiments/scaler.joblib',
+    # model_path='D:/Environments/Projects/Academic-Success-Classification/experiments/rf.pkl'
+    scaler_path= '/home/ubuntu/experiments/scaler.joblib',
+    model_path= '/home/ubuntu/experiments/rf.pkl'
 )
 
 @app.route('/')
@@ -62,4 +64,5 @@ def predict():
         return jsonify({"error": str(e)}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8080)
+    # app.run(debug=True)
