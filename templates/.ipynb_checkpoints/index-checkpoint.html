@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <div id="form-sections">
+            <!-- Personal Information -->
+            <div class="form-section active">
+                <h2>Personal Information</h2>
+                <label>Marital status: <input type="text" id="Marital status"></label>
+                <label>Nationality: <input type="text" id="Nationality"></label>
+                <label>Gender: <input type="text" id="Gender"></label>
+                <label>Age at enrollment: <input type="number" id="Age at enrollment"></label>
+                <label>International: <input type="text" id="International"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Application Details -->
+            <div class="form-section">
+                <h2>Application Details</h2>
+                <label>Application mode: <input type="text" id="Application mode"></label>
+                <label>Application order: <input type="number" id="Application order"></label>
+                <label>Course: <input type="text" id="Course"></label>
+                <label>Daytime/evening attendance: <input type="text" id="Daytime/evening attendance"></label>
+                <label>Previous qualification: <input type="text" id="Previous qualification"></label>
+                <label>Previous qualification (grade): <input type="number" id="Previous qualification (grade)"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Family Background -->
+            <div class="form-section">
+                <h2>Family Background</h2>
+                <label>Mother's qualification: <input type="text" id="Mother's qualification"></label>
+                <label>Father's qualification: <input type="text" id="Father's qualification"></label>
+                <label>Mother's occupation: <input type="text" id="Mother's occupation"></label>
+                <label>Father's occupation: <input type="text" id="Father's occupation"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Admission and Fees -->
+            <div class="form-section">
+                <h2>Admission and Fees</h2>
+                <label>Admission grade: <input type="number" id="Admission grade"></label>
+                <label>Scholarship holder: <input type="text" id="Scholarship holder"></label>
+                <label>Displaced: <input type="text" id="Displaced"></label>
+                <label>Educational special needs: <input type="text" id="Educational special needs"></label>
+                <label>Debtor: <input type="text" id="Debtor"></label>
+                <label>Tuition fees up to date: <input type="text" id="Tuition fees up to date"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Academic Performance -->
+            <div class="form-section">
+                <h2>Academic Performance</h2>
+                <label>Curricular units 1st sem (credited): <input type="number" id="Curricular units 1st sem (credited)"></label>
+                <label>Curricular units 1st sem (enrolled): <input type="number" id="Curricular units 1st sem (enrolled)"></label>
+                <label>Curricular units 1st sem (evaluations): <input type="number" id="Curricular units 1st sem (evaluations)"></label>
+                <label>Curricular units 1st sem (approved): <input type="number" id="Curricular units 1st sem (approved)"></label>
+                <label>Curricular units 1st sem (grade): <input type="number" id="Curricular units 1st sem (grade)"></label>
+                <label>Curricular units 1st sem (without evaluations): <input type="number" id="Curricular units 1st sem (without evaluations)"></label>
+                <label>Curricular units 2nd sem (credited): <input type="number" id="Curricular units 2nd sem (credited)"></label>
+                <label>Curricular units 2nd sem (enrolled): <input type="number" id="Curricular units 2nd sem (enrolled)"></label>
+                <label>Curricular units 2nd sem (evaluations): <input type="number" id="Curricular units 2nd sem (evaluations)"></label>
+                <label>Curricular units 2nd sem (approved): <input type="number" id="Curricular units 2nd sem (approved)"></label>
+                <label>Curricular units 2nd sem (grade): <input type="number" id="Curricular units 2nd sem (grade)"></label>
+                <label>Curricular units 2nd sem (without evaluations): <input type="number" id="Curricular units 2nd sem (without evaluations)"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Economic Indicators -->
+            <div class="form-section">
+                <h2>Economic Indicators</h2>
+                <label>Unemployment rate: <input type="number" id="Unemployment rate"></label>
+                <label>Inflation rate: <input type="number" id="Inflation rate"></label>
+                <label>GDP: <input type="number" id="GDP"></label>
+                <button onclick="nextSection()">Next</button>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="form-section">
+                <h2>Submit</h2>
+                <button onclick="submitForm()">Predict</button>
+                <div id="loading" style="display: none;">Loading...</div>
+            </div>
+        </div>
+        <div id="prediction-result" style="display: none;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

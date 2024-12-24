@@ -1,0 +1,216 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #4a90e2, #50c9c3);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.9); /* White background with 80% opacity */
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+/* Title Styling */
+.title-container {
+  text-align: center;
+  margin-bottom: 50px; /* Space between title and form */
+}
+
+.title-container h1 {
+  font-size: 2rem;
+  color: #ffffff; /* Match the color to your theme */
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Form Sections */
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+/* Labels and Inputs */
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+label select,
+label input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #4a90e2;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3b78d4;
+}
+
+#loading {
+  color: #4a90e2;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* Dynamic Transition Effect */
+div.form-section {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Slideshow Styles */
+#slideshow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind the form */
+  overflow: hidden;
+}
+
+.slideshow-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Default to hidden */
+  animation: fade 75s infinite; /* 5 images x 15 seconds each */
+}
+
+.slideshow-image:nth-child(1) {
+  animation-delay: 0s; /* Starts immediately */
+  opacity: 1; /* Ensure the first image is visible on load */
+}
+
+.slideshow-image:nth-child(2) {
+  animation-delay: 15s;
+}
+
+.slideshow-image:nth-child(3) {
+  animation-delay: 30s;
+}
+
+.slideshow-image:nth-child(4) {
+  animation-delay: 45s;
+}
+
+.slideshow-image:nth-child(5) {
+  animation-delay: 60s;
+}
+
+/* Fade Animation */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+  font-size: 20px; /* Increased text size */
+  font-weight: bold; /* Bold text for emphasis */
+  color: #333; /* Text color */
+  margin-bottom: 20px;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-success {
+  color: #28a745; /* Green text for success */
+}
+
+.modal-error {
+  color: #dc3545; /* Red text for errors */
+}
