@@ -84,11 +84,6 @@ The web application and model are deployed on an AWS EC2 instance:
 3. View the prediction result: Dropout, Enrolled, or Graduate.
 
 
-## License
-
-This project is licensed under the ```MIT License```. See LICENSE for details.
-
-
 ## Contributors
 
 ```Sounak Sarkar``` - Developer and Maintainer
