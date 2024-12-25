@@ -75,7 +75,7 @@ The web application and model are deployed on an AWS EC2 instance:
 5. Ensure the security group allows HTTP traffic on port 80 (or your chosen port).
 
 
-Usage
+## Usage
 
 1. Navigate to the web interface.
 
