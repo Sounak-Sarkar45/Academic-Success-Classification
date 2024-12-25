@@ -41,8 +41,8 @@ The system is powered by a machine learning model and provides a web interface f
 1. Clone the Repository:
 
    ```
-   git clone <repository_url>
-   cd academic-success-classification
+   git clone https://github.com/Sounak-Sarkar45/Academic-Success-Classification.git
+   cd Academic-Success-Classification
    ```
    
 2. Install Dependencies:
