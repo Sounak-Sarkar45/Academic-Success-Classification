@@ -84,6 +84,20 @@ The web application and model are deployed on an AWS EC2 instance:
 3. View the prediction result: Dropout, Enrolled, or Graduate.
 
 
+## DOCKER -
+
+This Docker image hosts a Flask-based web application for predicting academic outcomes using a machine learning model. The application is lightweight, easy to deploy, and ready for integration into various environments.
+
+### Quick Start
+
+To pull and run the application, use the following commands:
+
+```
+docker pull sounaksarkar/academic-class-app:latest
+docker run -d -p 5000:5000 sounaksarkar/academic-class-app:latest
+```
+
+
 ## Contributors
 
 ```Sounak Sarkar``` - Developer and Maintainer
