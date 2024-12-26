@@ -3,11 +3,16 @@ import joblib
 import pickle
 import pandas as pd
 import time
+import os
 
 app = Flask(__name__)
 
 class AcademicSuccess:
     def __init__(self, scaler_path, model_path):
+        base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
+        scaler_full_path = os.path.join(base_dir, scaler_path)
+        model_full_path = os.path.join(base_dir, model_path)
+
         self.scaler = joblib.load(scaler_path)
         with open(model_path, 'rb') as model_file:
             self.model = pickle.load(model_file)
@@ -41,10 +46,10 @@ class AcademicSuccess:
         return label_mapping.get(prediction[0], "Unknown")
 
 academic_success = AcademicSuccess(
-    # scaler_path='D:/Environments/Projects/Academic-Success-Classification/experiments/scaler.joblib',
-    # model_path='D:/Environments/Projects/Academic-Success-Classification/experiments/rf.pkl'
-    scaler_path= '/home/ubuntu/experiments/scaler.joblib',
-    model_path= '/home/ubuntu/experiments/rf.pkl'
+    scaler_path='experiments/scaler.joblib',
+    model_path='experiments/rf.pkl'
+    # scaler_path= '/home/ubuntu/experiments/scaler.joblib',
+    # model_path= '/home/ubuntu/experiments/rf.pkl'
 )
 
 @app.route('/')
@@ -64,5 +69,6 @@ def predict():
         return jsonify({"error": str(e)}), 400
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8080)
+    # app.run(host='0.0.0.0',port=8080)
     # app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=5000)
